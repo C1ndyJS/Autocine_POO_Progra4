@@ -8,10 +8,9 @@ miframe=Frame(raiz)
 miframe.pack()
 pantalla=Label(miframe,text="PANTALLA",pady=25)
 pantalla.grid(row=0 ,column=0,columnspan=6)
-ima=PhotoImage(file=r'C:\Users\Usuario\Downloads\icons8-user-100.png')
-
-usernsme=Label(miframe,image=ima,bg="blue",padx=300,pady= 200 ,relief="solid")
-usernsme.grid(row=1,column=6,rowspan=3)
+#ima=PhotoImage(file=r'C:\Users\Usuario\\Downloads\icons8-user-100.png')
+#usernsme=Label(miframe,image=ima,bg="blue",padx=300,pady= 200 ,relief="solid")
+#usernsme.grid(row=1,column=6,rowspan=3)
 
 info=Label(miframe,text="PELICULA INFO",padx=85,pady= 65 ,relief="solid",justify="right")
 info.grid(row=5,column=6,rowspan=2)
