@@ -1,5 +1,7 @@
 from  tkinter import*
 from tkinter import messagebox
+import os 
+img_dir = os.getcwd()
 
 class Persona:
     def __init__(self,id,name,edad, phone):
@@ -63,7 +65,7 @@ class Interfaz(Vendedor):
         self.root.configure(bg ="#1F618D")
         self.root.resizable(False, False)
 
-        self.imgUser = PhotoImage(file ='C:\\Users\\cmjim\\OneDrive\\Escritorio\\Cindy\\Parciales\\icons8-user-100.png')
+        self.imgUser = PhotoImage(file =f'{img_dir}/images/users.png')
         Label(self.root, image=self.imgUser, bg = '#1F618D').place(x=180, y=105)
         #Login 
         self.frameUs = Frame(self.root, width = 180, height= 20, bg ='white')
@@ -95,7 +97,7 @@ class Interfaz(Vendedor):
         self.Columna = Frame(self.ventanaLevel, width = 550, height= 550, bg ='#2471A3')
         self.Columna.place(x=500, y=56)
 
-        self.imgUser2 = PhotoImage(file ='C:\\Users\\cmjim\\OneDrive\\Escritorio\\Cindy\\Parciales\\icons8-user-100.png')
+        self.imgUser2 = PhotoImage(file =f'{img_dir}/images/users.png')
         Label(self.Columna, image = self.imgUser2, bg ='#2471A3').place(x=50, y=10)
         self.heading1 = Label(self.Columna, text ='___________', fg ='white', bg = '#2471A3', font=( "cursive",25, 'bold') )
         self.heading1.place(x=-2, y= 100)
