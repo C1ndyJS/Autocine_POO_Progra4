@@ -47,9 +47,12 @@ class InterfazMovie(Movie): #Duracion en minutos
         self.root.resizable(False, False)
         self.fila1 = Frame(self.root, width = 700, height= 65, bg ='black')
         self.fila1.place(x=0, y=0)
-        
-        self.framemovie = Frame(self.root, width= 200, height = 300, background='white')
+        self.heading = Label(self.fila1, text = 'Cartelera', bg = 'black', )
+        self.framemovie = Frame(self.root, width= 200, height = 200, background='white')
         self.framemovie.place(x = 50, y = 100)
+        
+        self.framemovie = Frame(self.root, width= 200, height = 200, background='white')
+        self.framemovie.place(x = 450, y = 350)
 
 pantallaMovies= InterfazMovie(Tk(), 'Wakanda Por Siempre', "Ciencia Ficcion", 16, 161)
 pantallaMovies.root.mainloop()
