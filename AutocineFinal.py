@@ -1,57 +1,10 @@
 from  tkinter import*
 from tkinter import messagebox
+from lib.common import Persona, Vendedor
+
 import os 
 img_dir = os.getcwd()
 
-class Persona:
-    def __init__(self,id,name,edad, phone):
-        self.id = id
-        self.name = name
-        self.edad = edad
-        self.phone = phone
-
-    def GetName(self):
-        return self.name
-    def GetEdad(self):
-        return self.edad
-    def GetId(self):
-        return self.id
-    def GetPhone(self):
-        return self.phone
-    
-    def SetName(self, name):
-        self.name = name
-        return self.name
-    def SetEdad(self, Age):
-        self.edad = Age
-        return self.edad
-    def SetId(self, id):
-        self.id = id
-        return self.id
-    def SetPhone(self,phone):
-        self.phone = phone
-        return self.phone  
-
-    def ShowInfo(self): 
-        print("Nombre:", self.name)
-        print("ID:", self.id)
-        print("Phone:", self.phone)
-
-    
-#==========
-class Vendedor(Persona):
-    def __init__(self,id,name,edad, phone, dni_T):
-        super().__init__(id,name,edad, phone)
-        self.dni_T = dni_T
-    
-    def GetdniT(self):
-        return self.dni_T
-    def SetdniT(self):
-        self.dni_T = input("Ingrese la id de trabajador:")
-    
-    def ShowInfo(self):
-        print("Dni: ", self.dni_T)
-        return super().ShowInfo()
 
 class Interfaz(Vendedor):
     def __init__(self, root, id,name,edad, phone, dni_T) -> None:
@@ -74,7 +27,6 @@ class Interfaz(Vendedor):
         self.user = Entry(self.frameUs, width=25, fg='black', border = 5, bg = 'white', font=('Microsoft YaHeu UI Light', 10))
         self.user.place(x = 1, y = 0)
         name = self.user.get()
-        print(name)
         self.framepw = Frame(self.root, width = 180, height= 20, bg ='white')
         self.framepw.place(x=140, y = 285)
 
@@ -91,7 +43,6 @@ class Interfaz(Vendedor):
         self.ventanaLevel.configure(bg = "white")
         self.ventanaLevel.resizable(False, False)
         self.correo = self.user.get()
-        print(self.correo)
         self.Fila1 = Frame(self.ventanaLevel, width = 750, height= 55, bg ='black')
         self.Fila1.place(x=0, y=0)
         self.Columna = Frame(self.ventanaLevel, width = 550, height= 550, bg ='#2471A3')
@@ -149,10 +100,8 @@ class Interfaz(Vendedor):
 c1 = Vendedor(100, "Pera", 30, 3123, 12345)
 c2 = Persona(100, "Pepito", 32, 31983)
 name = c1.GetName()
-#print(name)
 
 #id,name,edad, phone, dni_T
 obj = Interfaz(Tk(), 100, "Andres", 30, 3123, 12345)
 nam = obj.GetName()
-print(nam)
 obj.root.mainloop()
