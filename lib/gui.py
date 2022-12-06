@@ -20,6 +20,7 @@ class Interfaz:
 
         self.imgUser = PhotoImage(file =f'{img_dir}/images/users.png')
         Label(self.root, image=self.imgUser, bg = '#1F618D').place(x=180, y=105)
+
         #Login 
         self.frameUs = Frame(self.root, width = 180, height= 20, bg ='white')
         self.frameUs.place(x=140, y = 235)
@@ -168,22 +169,26 @@ class Interfaz:
         self.title = Frame(self.reserves, width= 450, height = 25)
         self.title.pack()
         self.title2 =Label(self.title, text ="Pantalla", fg ='black' ).place(x=220, y = 0)
-        frame = Frame(self.reserves, width= 600, height = 500)
-        frame.place(x = 100, y =50)
-        # Create a 2D array of Buttons representing the Parkin space.
-        seats = []
-        rows = ['A','B','C','D','F','G']
-        for row in range(len(rows)):
-            seats.append([])
-       
-            for col in range(6):
-                cb = Button(frame,text=f'{rows[row]}{col}',bg="white",width=3, padx=25, pady=25, command=lambda r=rows[row], c=col: checkout(r,c))
-                cb.grid(row=row, column=col)
-                seats[row].append(seats)
-                        
+        self.frame = Frame(self.reserves, width= 600, height = 500)
+        self.frame.place(x = 100, y =50)
+    
+        lista = ['A','B','C','D','E','F']
+        buttons = []
+
+        # Disable the button when is clicked
         def checkout(row, col):
             print("Checkout {} {}".format(row,col))
-            #if (cb['state'] == NORMAL):
-             #   cb['state'] = DISABLED
-        #reserve_button = Button(self.reserves, text='Reserve seats', command=lambda: checkout(seats))
-        #reserve_button.pack()
+            
+        def disable( button):
+            button.config(state="disabled")
+
+        for i in range(6):
+            buttons.append([])
+            for j in range(6):
+                button = Button(self.frame, width = 10, height =2, text="{}{}".format(lista[i], (j+1)))
+                button.grid(row=i, column=j)
+                buttons[i].append(button)
+
+        for i in range(6):
+            for j in range(6):
+                buttons[i][j].config(command=lambda b=buttons[i][j]: disable(b))
