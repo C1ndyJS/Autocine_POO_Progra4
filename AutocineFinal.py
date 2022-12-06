@@ -33,16 +33,21 @@ class Interfaz(Vendedor):
         self.password = Entry(self.framepw, show ='*', width=25, fg='black', border = 5, bg = 'white', font=('Microsoft YaHeu UI Light', 10))
         self.password.place(x = 1, y = 0)    
         
+        self.botonexit = Button(self.root, text="exit", width = 5, command=self.root.destroy) #good
+        self.botonexit.place(x=400, y=475)
+
         botonLogin = Button(self.root, text = "Login", command=self.SecondWindow)
         botonLogin.place(x=210, y=320)
     
     def SecondWindow(self):
+        self.root.iconify()
         self.ventanaLevel = Toplevel()
         self.ventanaLevel.title("Services Star")
         self.ventanaLevel.geometry("700x450")
         self.ventanaLevel.configure(bg = "white")
         self.ventanaLevel.resizable(False, False)
         self.correo = self.user.get()
+        
         self.Fila1 = Frame(self.ventanaLevel, width = 750, height= 55, bg ='black')
         self.Fila1.place(x=0, y=0)
         self.Columna = Frame(self.ventanaLevel, width = 550, height= 550, bg ='#2471A3')
@@ -68,7 +73,7 @@ class Interfaz(Vendedor):
         self.Phone = Label(self.Columna, text =f' phone:{self.phone} (Co)', fg ='white', bg = '#2471A3', font=( "cursive",12, 'bold') )
         self.Phone.place(x=0, y= 230)
         
-        self.botonLot = Button(self.ventanaLevel, text="Log out", width = 15, command=self.ventanaLevel.destroy)
+        self.botonLot = Button(self.ventanaLevel, text="Log out", width = 15, command=self.ventanaLevel.destroy) #good
         self.botonLot.place(x=30, y=15)
 
         self.botonActInfo = Button(self.ventanaLevel, text="Actualizar Informacion", width = 20, command=self.ventanaLevel.destroy)
@@ -77,13 +82,13 @@ class Interfaz(Vendedor):
         self.opciones = Frame(self.ventanaLevel, width=500, height=500, bg="#85C1E9")
         self.opciones.place(x= 0, y = 56)
         
-        self.botonRegistroBoleta = Button(self.opciones, text="Registrar \nCompra", width = 15, height="10", command=self.ventanaLevel.destroy)
+        self.botonRegistroBoleta = Button(self.opciones, text="Registrar\nBoleta", width = 15, height="10", command=self.reserves)
         self.botonRegistroBoleta.place(x=65, y=100)
 
-        self.botonInfoPeliculas = Button(self.opciones, text=f'Informacion\nMovies', width = 15, height ="10", command=self.ventanaLevel.destroy)
+        self.botonInfoPeliculas = Button(self.opciones, text=f'Informacion\nMovies', width = 15, height ="10", command=self.thirdWindow)
         self.botonInfoPeliculas.place(x =195, y=100)
 
-        self.botonListarVentas = Button(self.opciones, text="Listar Venta", width = 15, height ="10", command=self.ventanaLevel.destroy)
+        self.botonListarVentas = Button(self.opciones, text="Resume", width = 15, height ="10", command=self.reserves)
         self.botonListarVentas.place(x = 325, y=100)
 
         self.heading = Label(self.opciones, text ='______________________________', fg ='white', bg = '#85C1E9', font=( "cursive",25, 'bold') )
@@ -93,8 +98,58 @@ class Interfaz(Vendedor):
         
         self.fila2 = Frame(self.ventanaLevel, width = 700, height= 165, bg ='black')
         self.fila2.place(x=0, y=398)
-#class InterfazVentas:
+    
+    def thirdWindow(self):
+        self.cartelera = Toplevel()
+        self.cartelera.title('Cartelera')
+        self.cartelera.geometry('700x600')
+        self.cartelera.configure(bg ="#154360")
+        self.cartelera.resizable(False, False)
+        
+        self.fila1 = Frame(self.cartelera, width = 700, height= 65, bg ='black')
+        self.fila1.place(x=0, y=0)
+        self.heading = Label(self.fila1, text = 'Cartelera', bg = 'black', )
+        self.framemovie = Frame(self.cartelera, width= 200, height = 200, background='white')
+        self.framemovie.place(x = 50, y = 100)
+        
+        self.framemovie = Frame(self.cartelera, width= 200, height = 200, background='white')
+        self.framemovie.place(x = 450, y = 350)
 
+    #CuartaPantalla
+    def reserves(self):
+        # Create the main window
+        self.reserves = Toplevel()
+        # Create a frame for the seat map
+        frame = Frame(self.reserves)
+        frame.pack()
+
+        # Create a 2D array of checkboxes representing the seats
+        seats = []
+        cols = ['A','B','C','D','F','G']
+        for row in range(6):
+            seats.append([])
+            for col in range(len(cols)):
+                seat = IntVar()
+                #cb = Checkbutton(frame, text=f'Parqueader {row},{col}', variable=seat)
+                cb = Button(frame,text=f'{cols[col]}{row}',bg="white",width=3, padx=25, pady=25)
+                cb.grid(row=row, column=col)
+                seats[row].append(seat)
+        # Create a button to reserve the selected seats
+        reserve_button = Button(self.reserves, text='Reserve seats', command=lambda: reserve_seats(seats))
+        reserve_button.pack()
+
+    # Define the callback function for the reserve button
+    
+def reserve_seats(self, seats):
+        # Iterate over the seat checkboxes
+    for row in seats:
+        for seat in row:
+                # If the seat is selected, print its coordinates
+            if seat.get() == 1:
+                print(f'Reserving seat {seat.row},{seat.col}')
+'''
+    
+'''
 #=============
 
 c1 = Vendedor(100, "Pera", 30, 3123, 12345)

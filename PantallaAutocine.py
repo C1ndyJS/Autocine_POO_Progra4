@@ -20,7 +20,7 @@ heading1.place(x=0, y= 100)
 heading2 = Label(Columna, text ='___________', fg ='white', bg = '#2471A3', font=( "cursive",25, 'bold') )
 heading2.place(x=0, y= 300)
 headingName = Label(Columna, text ='User', fg ='white', bg = '#2471A3', font=( "cursive",12, 'bold') )
-headingName.place(x=77, y= 110)
+headingName.place(x=75, y= 110)
 imgUser = PhotoImage(file ='C:\\Users\\cmjim\\OneDrive\\Escritorio\\Cindy\\Parciales\\icons8-user-100.png')
 Label(Columna, image = imgUser, bg ='#2471A3').place(x=50, y=10)
 

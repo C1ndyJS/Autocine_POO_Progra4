@@ -35,27 +35,27 @@ class Movie:
 
 
 class InterfazMovie(Movie): #Duracion en minutos
-    def __init__(self, root, nombre, genero,clasificacion_edad, duracion):
+    def __init__(self, cartelera, nombre, genero,clasificacion_edad, duracion):
         super().__init__(nombre,genero,clasificacion_edad, duracion)
-        self.root = root
+        self.cartelera = cartelera
         self.InformacionMovie()
     
     def InformacionMovie(self):
-        self.root.title('Login')
-        self.root.geometry('700x600')
-        self.root.configure(bg ="#154360")
-        self.root.resizable(False, False)
-        self.fila1 = Frame(self.root, width = 700, height= 65, bg ='black')
+        self.cartelera.title('Login')
+        self.cartelera.geometry('700x600')
+        self.cartelera.configure(bg ="#154360")
+        self.cartelera.resizable(False, False)
+        self.fila1 = Frame(self.cartelera, width = 700, height= 65, bg ='black')
         self.fila1.place(x=0, y=0)
         self.heading = Label(self.fila1, text = 'Cartelera', bg = 'black', )
-        self.framemovie = Frame(self.root, width= 200, height = 200, background='white')
+        self.framemovie = Frame(self.cartelera, width= 200, height = 200, background='white')
         self.framemovie.place(x = 50, y = 100)
         
-        self.framemovie = Frame(self.root, width= 200, height = 200, background='white')
+        self.framemovie = Frame(self.cartelera, width= 200, height = 200, background='white')
         self.framemovie.place(x = 450, y = 350)
 
 pantallaMovies= InterfazMovie(Tk(), 'Wakanda Por Siempre', "Ciencia Ficcion", 16, 161)
-pantallaMovies.root.mainloop()
+pantallaMovies.cartelera.mainloop()
 
 #PELICULA #1
 #En PANTERA NEGRA: WAKANDA POR SIEMPRE de Marvel Studios, la reina Ramonda (Angela Bassett), 
