@@ -1,4 +1,5 @@
 from  tkinter import *
+from lib.common import *
 import os 
 img_dir = os.getcwd()
 
@@ -57,16 +58,15 @@ class Interfaz:
         self.heading2 = Label(self.Columna, text ='___________', fg ='white', bg = '#2471A3', font=( "cursive",25, 'bold') )
         self.heading2.place(x=-2, y= 300)
         #Vendedor
+        v = Vendedor("1113123","Heticor")
         self.correo = Label(self.Columna, text =f'XXXXX', fg ='white', bg = '#2471A3', font=( "cursive",12, 'bold') )
         self.correo.place(x=50, y= 110) 
-        self.Nombre = Label(self.Columna, text =f' Nombre:XXXX', fg ='white', bg = '#2471A3', font=( "cursive",12, 'bold') )
+        self.Nombre = Label(self.Columna, text =f' Nombre:{v.getName()}', fg ='white', bg = '#2471A3', font=( "cursive",12, 'bold') )
         self.Nombre.place(x=0, y= 150)        
         self.Iden = Label(self.Columna, text =f' Ident:XXXXXX', fg ='white', bg = '#2471A3', font=( "cursive",12, 'bold'))
         self.Iden.place(x=0, y= 170)
         self.Edad = Label(self.Columna, text =f' Edad:XXXXX años', fg ='white', bg = '#2471A3', font=( "cursive",12, 'bold') )
         self.Edad.place(x=0, y= 190)
-        self.DNIT = Label(self.Columna, text =f' DniT:XXXX', fg ='white', bg = '#2471A3', font=( "cursive",12, 'bold') )
-        self.DNIT.place(x=0, y= 210)
         self.Phone = Label(self.Columna, text =f' phone:XXXXXXXXXX CO', fg ='white', bg = '#2471A3', font=( "cursive",12, 'bold') )
         self.Phone.place(x=0, y= 230)
         

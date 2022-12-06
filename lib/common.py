@@ -43,7 +43,7 @@ class Vendedor(Persona):
         id> required parameter
         name> required parameter
     """
-    def __init__(self,id,name,edad, phone):
+    def __init__(self,id,name,edad=None,phone=None):
         super().__init__(id,name,edad, phone)
 
 class Automovil:
