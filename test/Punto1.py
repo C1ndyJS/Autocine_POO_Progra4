@@ -1,4 +1,4 @@
-from clases1 import * 
+from test.clases1 import * 
 import os
 import time
 
