@@ -1,5 +1,6 @@
 from  tkinter import *
 from lib.common import *
+from lib.utils import *
 import os 
 img_dir = os.getcwd()
 
@@ -117,6 +118,10 @@ class Interfaz:
         # Create the main window
         self.reserves = Toplevel()
         # Create a frame for the parking map
+        self.reserves.title('Reservar Lugar')
+        self.reserves.geometry('700x600')
+        self.reserves.configure(bg ="#154360")
+        self.reserves.resizable(False, False)
         frame = Frame(self.reserves)
         frame.pack()
 
@@ -128,9 +133,9 @@ class Interfaz:
             for col in range(6):
                 seat = IntVar()
                 #cb = Checkbutton(frame, text=f'Parqueader {row},{col}', variable=seat)
-                cb = Button(frame,text=f'{rows[row]}{col}',bg="white",width=3, padx=25, pady=25)
+                cb = Button(frame,text=f'{rows[row]}{col}',bg="white",width=3, padx=25, pady=25,command=lambda r=rows[row], c=col: checkout(r,c))
                 cb.grid(row=row, column=col)
-                seats[row].append(seat)
+                seats[row].append(seats)
         # Create a button to reserve the selected seats
-        reserve_button = Button(self.reserves, text='Reserve seats', command=lambda: reserve_seats(seats))
+        reserve_button = Button(self.reserves, text='Reserve seats', command=lambda: reserve_seats( ))
         reserve_button.pack()
