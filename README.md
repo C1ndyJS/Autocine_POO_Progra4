@@ -1,7 +1,7 @@
 # autocine-POO_Progra4
-# Programacion 4  
-# ISC-UTP, 2022-2 
-# Cindy Marcela Jimenez S.
+Programacion 4  
+ISC-UTP, 2022-2 
+Cindy Marcela Jimenez S.
 
 NOTA: Este proyecto fue creado para una entrega de Programacion 4 de la Universidad Tecnologica de Pereira, toda la historia de creación de personajes y empresas es ficticia, nada fue tomado de alguna compañia real, los fines de este repositoria son exclusivamente academicos. 
 
